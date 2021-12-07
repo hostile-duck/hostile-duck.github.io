@@ -6,10 +6,294 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Duckie</title>
+        
+        <style>
+            @font-face {
+    font-family: readexRegular;
+    src: url(assets/ReadexPro-Regular.ttf);
+}
 
-        <link rel="stylesheet" href="styles.css">
-        <script src="./index.js"></script>
+@font-face {
+    font-family: readexMedium;
+    src: url(assets/ReadexPro-Medium.ttf);
+}
+
+@font-face {
+    font-family: readexSemiBold;
+    src: url(assets/ReadexPro-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: readexBold;
+    src: url(assets/ReadexPro-Bold.ttf);
+}
+
+:root {
+    --primary: #0061EB;
+    --primary-hover: #3185FC;
+    --secondary: #E9E9E9;
+    --secondary-hover: #DDDDDD;
+
+    --transition: 0.2s;
+
+    --text-dark: #2C333A;
+    --text-grey: #535C65;
+    --text-light: #8A8E91;
+    --text-white: #FFFFFF;
+}
+
+::selection {
+    color: var(--primary);
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+button {
+    position: absolute;
+    width: 212px;
+    height: 48px;
+
+    transition-duration: var(--transition);
+    border-radius: 2px;
+
+    font-family: readexBold;
+    font-size: 14px;
+
+    border: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+.invite-link {
+    color: var(--primary);
+    font-family: readexBold;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.invite-link:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--primary);
+    text-decoration-thickness: 2.49px;
+}
+
+.button-primary {
+    color: var(--text-white);
+    background-color: var(--primary);
+}
+
+.button-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.button-secondary {
+    color: var(--text-grey);
+    background-color: var(--secondary);
+}
+
+.button-secondary:hover {
+    background-color: var(--secondary-hover);
+}
+
+.button-login {
+    width: 100px; 
+    height: 40px; 
+    left: 238px; 
+    
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.wave {
+    position: absolute;
+    top: 500px;
+    left: 0px;
+}
+
+.navbar {
+    position: absolute;
+    width: 100%;
+    height: 66px;
+    left: 0px;
+    top: 0px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-link {
+    color: #676E74;
+
+    font-family: readexRegular;
+    font-size: 16px;
+
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+
+
+    transition-duration: var(--transition);
+    cursor: pointer;
+}
+
+.navbar-link:hover {
+    color: var(--primary);
+}
+
+.heading {
+    position: absolute;
+    color: var(--text-dark);
+
+    font-family: readexBold;
+    font-size: 36px;
+}
+
+.description {
+    position: absolute;
+    color: var(--text-light);
+
+    font-family: readexRegular;
+    font-size: 16px;
+}
+
+.button-group {
+    position: absolute; 
+    left: 16.3%; 
+    width: 439px; 
+    height: 48px; 
+    top: 340px;
+}
+
+.landing-page-desc {
+    width: 528px;
+    left: 16.3%; 
+    top: 275px;
+}
+
+.features-box {
+    position: absolute;
+    right: 313px;
+    top: 150px;
+    width: 339px; 
+    height: 327px;
+}
+
+.landing-page-heading {
+    left: 16.3%; 
+    top: 219px;
+}
+
+@media screen and (max-width: 1380px) {
+    .landing-page-heading {
+        margin: 0;
+        position: absolute;
+        white-space: nowrap; 
+        left: 50%;
+        top: 219px;
+        width: auto;
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+
+    .landing-page-desc {
+        top: 275px;
+        text-align: center;
+        
+        margin: 0;
+        position: absolute;
+        left: 50%;
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+
+    .button-group {
+        top: 340px;
+
+        margin: 0;
+        position: absolute;
+        left: 50%;
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+
+    .features-box {
+        opacity: 0%;
+        z-index: -10;
+    }
+} 
+
+@media screen and (max-width: 600px) {
+    .navbar {
+        position: absolute;
+        width: 100%;
+        height: 56px;
+        left: 0px;
+        top: 0px;
+
+        background: #FFFFFF;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .landing-page-heading {
+        font-size: 28px;
+        white-space: nowrap; 
+
+        margin: 0px;
+        padding: 0px;
+
+        position: absolute;
+
+        left: 50%;
+        top: 219px;
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+
+    .landing-page-desc {
+        font-size: 14px;
+
+        top: 275px;
+        text-align: center;
+        
+        width: 300px;
+
+        margin: 0;
+        position: absolute;
+        left: 50%;
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+
+    .button-group {
+        top: 340px;
+
+        margin: 0;
+        position: absolute;
+        left: 50%;
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+
+    .features-box {
+        opacity: 0%;
+        z-index: -10;
+    }
+
+    .wave {
+        top: 550px;
+    }
+}
+        </style>
     </head>
+    
     <body>
         <div class="navbar">
             <div style="position: absolute; width: 351px; height: inherit; right: 0%;">
